@@ -1,6 +1,4 @@
-
-
-getCurrentPosition();
+setInterval(getCurrentPosition, 1000);
 
 function distance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -34,4 +32,6 @@ function getCurrentPosition() {
 
 function showPosition(position) {
     document.getElementById("curLat").innerHTML = position.coords.latitude;
+    document.getElementById("curLon").innerHTML = position.coords.longitude;
 }
+
