@@ -1,4 +1,4 @@
-var latView = document.getElementById("curLat");
+
 
 getCurrentPosition();
 
@@ -33,5 +33,5 @@ function getCurrentPosition() {
 }
 
 function showPosition(position) {
-    latView.innerHTML = position.coords.latitude;
+    document.getElementById("curLat").innerHTML = position.coords.latitude;
 }
