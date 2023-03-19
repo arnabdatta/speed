@@ -39,12 +39,12 @@ function getCurrentPosition() {
 }
 
 function storePosition(position) {
-    document.getElementById("curLat").innerHTML = position.coords.latitude;
-    document.getElementById("curLon").innerHTML = position.coords.longitude;
     prevLat = curLat;
     prevLon = curLon;
     curLat = position.coords.latitude;
     curLon = position.coords.longitude;
+    document.getElementById("curLat").innerHTML = position.coords.latitude + 'pre:' + prevLat;
+    document.getElementById("curLon").innerHTML = position.coords.longitude + 'pre:' + prevLon;
     dist = getDistance(curLat, curLon, prevLat, prevLon, 'K') * 1000;
     document.getElementById("curSpeed").innerHTML = dist + 'm';
     speed = dist /  2;
