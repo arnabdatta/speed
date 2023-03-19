@@ -1,10 +1,18 @@
-setInterval(getCurrentPosition, 1000);
+var prevLat;
+var prevLon;
+var curLat;
+var curLon;
+var curSpeed;
+var dist;
+var speed;
 
-function distance(lat1, lon1, lat2, lon2, unit) {
+setInterval(getCurrentPosition, 2000);
+
+function getDistance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
     }
-    else {
+    else {2
         var radlat1 = Math.PI * lat1/180;
         var radlat2 = Math.PI * lat2/180;
         var theta = lon1-lon2;
@@ -24,14 +32,22 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 
 function getCurrentPosition() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(storePosition);
     } else {
 
     }
 }
 
-function showPosition(position) {
+function storePosition(position) {
     document.getElementById("curLat").innerHTML = position.coords.latitude;
     document.getElementById("curLon").innerHTML = position.coords.longitude;
+    prevLat = curLat;
+    prevLon = curLon;
+    curLat = position.coords.latitude;
+    curLon = position.coords.longitude;
+    dist = getDistance(curLat, curLon, prevLat, prevLon, 'K');
+    speed = dist / ( 2 * 3600 ) ;
+    document.getElementById("curSpeed").innerHTML = position.coords.longitude;
 }
+
 
