@@ -45,9 +45,10 @@ function storePosition(position) {
     prevLon = curLon;
     curLat = position.coords.latitude;
     curLon = position.coords.longitude;
-    dist = getDistance(curLat, curLon, prevLat, prevLon, 'K');
-    speed = dist / ( 2 * 3600 ) ;
-    document.getElementById("curSpeed").innerHTML = speed;
+    dist = getDistance(curLat, curLon, prevLat, prevLon, 'K') * 1000;
+    document.getElementById("curSpeed").innerHTML = dist + 'm';
+    speed = dist /  2;
+    document.getElementById("curSpeed").innerHTML = speed + 'm/s';
 }
 
 
