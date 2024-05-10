@@ -6,7 +6,9 @@ var curSpeed;
 var dist;
 var speed;
 
-setInterval(getCurrentPosition, 2000);
+//setInterval(getCurrentPosition, 2000);
+
+getCurrentPosition();
 
 function getDistance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -32,10 +34,18 @@ function getDistance(lat1, lon1, lat2, lon2, unit) {
 
 function getCurrentPosition() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(storePosition);
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 10000,
+          };
+        navigator.geolocation.getCurrentPosition(storePosition, errorCallback, options);
     } else {
 
     }
+}
+
+function errorCallback(position) {
+
 }
 
 function storePosition(position) {
