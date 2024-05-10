@@ -50,6 +50,7 @@ function storePosition(position) {
     document.getElementById("curSpeed").innerHTML = dist + 'KM';
     speed = dist * 3600 /  2;
     document.getElementById("curSpeed").innerHTML = speed + 'KM/h';
+    document.getElementById("curSpeedNav").innerHTML = position.coords.speed + 'KM/h'
 }
 
 
