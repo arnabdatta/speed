@@ -6,7 +6,7 @@ var curSpeed;
 var dist;
 var speed;
 
-//setInterval(getCurrentPosition, 2000);
+setInterval(getCurrentPosition, 2000);
 
 getCurrentPosition();
 
